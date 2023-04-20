@@ -27,8 +27,10 @@ stop_button = button.Button(450, 200, stop_img, 1)
 run = True
 while run:
 
-    start_button.draw(screen)
-    stop_button.draw(screen)
+    if start_button.draw(screen): # checks if button has been clicked (done within class)
+        print('Start')
+    if stop_button.draw(screen):
+        print('Stop')
 
     for event in pygame.event.get(): # Checks for event occuring
         
