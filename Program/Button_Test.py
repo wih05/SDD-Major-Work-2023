@@ -20,16 +20,16 @@ start_img = pygame.image.load('Program\Sprites\Start_Button.png').convert_alpha(
 stop_img = pygame.image.load('Program\Sprites\Stop_Button.png').convert_alpha()
 
 # Button Instances
-start_button = button.Button(100, 200, start_img, 1)
-stop_button = button.Button(450, 200, stop_img, 1)
+start_button = button.Button(start_img, 1)
+stop_button = button.Button(stop_img, 1)
 
 #-- Main Loop --#
 run = True
 while run:
 
-    if start_button.draw(screen): # checks if button has been clicked (done within class)
+    if start_button.draw(100, 200, screen): # checks if button has been clicked (done within class)
         print('Start')
-    if stop_button.draw(screen):
+    if stop_button.draw(450, 200, screen):
         print('Stop')
 
     for event in pygame.event.get(): # Checks for event occuring
