@@ -8,7 +8,7 @@ import button
 
 #-- Setup --#
 # Window dimensions
-Screen_Height = 750
+Screen_Height = 730
 Screen_Width = 1200
 
 # Window creation
@@ -44,38 +44,38 @@ while run:
     if game_state == 'Main_Menu': #main menu screen
         if Levels_Button.draw(520, 100, screen):
             game_state = 'Levels'
-        if Endless_Button.draw(520, 280, screen):
+        if Endless_Button.draw(520, 260, screen):
             game_state = 'Endless'
-        if Help_Button.draw(520, 460, screen):
+        if Help_Button.draw(520, 440, screen):
             game_state = 'Help'
-        if Quit_Button.draw(520, 640, screen):
+        if Quit_Button.draw(520, 620, screen):
             run = False # Stops game loop, might add an, 'are you sure?' question.
     
     if game_state == 'Levels':
         Levels_Button_S.draw(50, 100, screen)
-        if Endless_Button.draw(50, 280, screen):
+        if Endless_Button.draw(50, 260, screen):
             game_state = 'Endless'
-        if Help_Button.draw(50, 460, screen):
+        if Help_Button.draw(50, 440, screen):
             game_state = 'Help'
-        if Quit_Button.draw(50, 640, screen):
+        if Quit_Button.draw(50, 620, screen):
             run = False
 
     if game_state == 'Endless':
         if Levels_Button.draw(50, 100, screen):
             game_state = 'Levels'
-        Endless_Button_S.draw(50, 280, screen)
-        if Help_Button.draw(50, 460, screen):
+        Endless_Button_S.draw(50, 260, screen)
+        if Help_Button.draw(50, 440, screen):
             game_state = 'Help'
-        if Quit_Button.draw(50, 640, screen):
+        if Quit_Button.draw(50, 620, screen):
             run = False
 
     if game_state == 'Help':
         if Levels_Button.draw(50, 100, screen):
             game_state = 'Levels'
-        if Endless_Button.draw(50, 280, screen):
+        if Endless_Button.draw(50, 260, screen):
             game_state = 'Endless'
-        Help_Button_S.draw(50, 460, screen)
-        if Quit_Button.draw(50, 640, screen):
+        Help_Button_S.draw(50, 440, screen)
+        if Quit_Button.draw(50, 620, screen):
             run = False
 
     for event in pygame.event.get(): # Checks for event occuring
