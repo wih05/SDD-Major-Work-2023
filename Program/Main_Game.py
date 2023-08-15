@@ -22,16 +22,15 @@ White = (255, 255, 255) # RGB value of white
 Pixil_Font = pygame.font.SysFont('consolas', 30, True) # Font setup, Font: consolas, size 30, Bold
 
 # Load images
-Levels_img = pygame.image.load('Program\Sprites\Menu_Levels_Button.png').convert_alpha()
-Endless_img = pygame.image.load('Program\Sprites\Menu_Endless_Button.png').convert_alpha()
-Help_img = pygame.image.load('Program\Sprites\Menu_Help_Button.png').convert_alpha()
-Quit_img = pygame.image.load('Program\Sprites\Menu_Quit_Button.png').convert_alpha()
-Levels_S_img = pygame.image.load('Program\Sprites\Menu_Levels_Button_S.png').convert_alpha()
-Endless_S_img = pygame.image.load('Program\Sprites\Menu_Endless_Button_S.png').convert_alpha()
-Help_S_img = pygame.image.load('Program\Sprites\Menu_Help_Button_S.png').convert_alpha()
+Levels_img = pygame.image.load('Sprites\Menu_Levels_Button.png').convert_alpha()
+Endless_img = pygame.image.load('Sprites\Menu_Endless_Button.png').convert_alpha()
+Help_img = pygame.image.load('Sprites\Menu_Help_Button.png').convert_alpha()
+Quit_img = pygame.image.load('Sprites\Menu_Quit_Button.png').convert_alpha()
+Levels_S_img = pygame.image.load('Sprites\Menu_Levels_Button_S.png').convert_alpha()
+Endless_S_img = pygame.image.load('Sprites\Menu_Endless_Button_S.png').convert_alpha()
+Help_S_img = pygame.image.load('Sprites\Menu_Help_Button_S.png').convert_alpha()
 Menu_Text_BG = pygame.image.load('Sprites\Menu_Text_BG.png').convert_alpha()
 Menu_Text_BG = pygame.transform.scale(Menu_Text_BG, (900, 600)) # Scales IMG up by 2
-
 # Buttons
 Levels_Button = button.Button(Levels_img, 2)
 Endless_Button = button.Button(Endless_img, 2)
@@ -51,14 +50,14 @@ def Display_Text(Surface, Text, Font, Colour, x, y): # function to display text 
     text = Font.render(Text, True, Colour) # creates the text
     Surface.blit(text, (x, y)) # displays text
 #--           --#
-
+    
 #-- Main Loop --#
 run = True
 while run:
 
-    screen.fill((138, 189, 207)) #sets color to a light blue like color (placeholder for background)
+    screen.fill((138, 189, 207)) # sets color to a light blue like color (placeholder for background)
 
-    if game_state == 'Main_Menu': #main menu screen
+    if game_state == 'Main_Menu': # Main menu screen
         if Levels_Button.draw(520, 100, screen):
             game_state = 'Levels'
         if Endless_Button.draw(520, 260, screen):
@@ -66,7 +65,7 @@ while run:
         if Help_Button.draw(520, 440, screen):
             game_state = 'Help'
         if Quit_Button.draw(520, 620, screen):
-            run = False # Stops game loop, might add an, 'are you sure?' question.
+            run = False # Stops game loop, might add a 'are you sure?' question.
     
     if game_state == 'Levels':
         Levels_Button_S.draw(50, 100, screen)
