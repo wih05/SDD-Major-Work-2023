@@ -12,15 +12,15 @@ class Enemy():
         #-- answer lists --#
         self.correct_a = []
         for i in correct:
-            self.correct_a.append(i)
+            self.correct_a.append(i) #makes sure the answers are actually in a list
         self.incorrect_a = []
         for i in incorrect:
             self.incorrect_a.append(i)
-        for i in self.incorrect_a:
+        for i in self.incorrect_a: #checks to see where the correct answers are in the incorrect list
             if i in self.correct_a:
                 for y in range(len(self.incorrect_a)):
                     if i == self.incorrect_a[y-1]:
-                        del self.incorrect_a[y-1]
+                        del self.incorrect_a[y-1]     #removes the unwanted answers
         print(self.correct_a)
         print(self.incorrect_a)
         self.correct_a_num = 0
