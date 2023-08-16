@@ -1,6 +1,8 @@
 #-- imports --#
 import pygame
 import button
+from enemy import Enemy
+from random import randint
 import os
 #--         --#
 
@@ -21,8 +23,15 @@ pygame.display.set_caption('Kanji Fighters: Endless') # WIP name
 White = (255, 255, 255) # RGB value of white
 Black = (0, 0, 0)
 Red = (255, 0, 0)
+Green = (0, 255, 0)
 Pixil_Font = pygame.font.SysFont('consolas', 30, True) # Font setup, Font: consolas, size 30, Bold
 Pixil_Font_Big = pygame.font.SysFont('consolas', 100, True)
+
+# Kanji Creation
+Kanji_1_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
+Kanji_List = [
+    Enemy(["placeholder_true"], ["mizu", "water", "placeholder_false"], Kanji_1_img, 3)
+]
 
 # Load images
 Exit_img = pygame.image.load('Program\Sprites\IG_Exit_Button.png').convert_alpha()
@@ -36,7 +45,7 @@ Retry_Button = button.Button(Retry_img, 2)
 #-- variables --#
 game_state = "Battle"
 score = 0
-health = 0
+health = 5
 #--           --#
 
 #-- functions --#
@@ -46,20 +55,77 @@ def Display_Text(Surface, Text, Font, Colour, x, y): # function to display text 
 #--           --#
 #-- Main Loop --#
 run = True
+Kanji_Generated = False
 while run:
-
+    clock.tick(10)
     if game_state == 'Battle':
         screen.fill((138, 189, 207)) # sets color to a light blue like color (placeholder for background)
         if health > 0:
-            # check if enemy is alive, if not spawn one
-            print("True")
-            #create the attacks based on the enemy
+            if Kanji_Generated == False:
+                # Active kanji choice
+                Active = randint(0, (len(Kanji_List)-1))
+                print(f"Active = {Active}")
+                Kanji_List[Active].move_generation()
 
-            #chose attack
+                # making buttons for possible answers
+                count = 1
+                for i in Kanji_List[Active].possible_answers:
+                    if count == 1:
+                        Img_1 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Attack_1 = button.Button(Img_1, 2)
+                    elif count == 2:
+                        Img_2 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Attack_2 = button.Button(Img_2, 2)
+                    elif count == 3:
+                        Img_3 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Attack_3 = button.Button(Img_3, 2)
+                    elif count == 4:
+                        Img_4 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Attack_4 = button.Button(Img_4, 2)
+                    print(f"loop {count}: {i}")
+                    count += 1
+                print("Button Creation Complete")
+                Kanji_Generated = True
+            Kanji_List[Active].draw(850, 200, screen) # draw the kanji to 'fight'
+            if Attack_1.draw(50, 400, screen):
+                if Kanji_List[Active].answer_check(1):
+                    score += 1
+                    screen.fill(Green)
+                    Kanji_Generated = False
+                else:
+                    health -= 1
+                    screen.fill(Red)
+                    Kanji_Generated = False
 
-            #if attack is correct, kill the enemy and increase score by one
+            if Attack_2.draw(50, 550, screen):
+                if Kanji_List[Active].answer_check(2):
+                    score += 1
+                    screen.fill(Green)
+                    Kanji_Generated = False
+                else:
+                    health -= 1
+                    screen.fill(Red)
+                    Kanji_Generated = False
 
-            #if false, lose 1 health
+            if Attack_3.draw(300, 400, screen):
+                if Kanji_List[Active].answer_check(3):
+                    score += 1
+                    screen.fill(Green)
+                    Kanji_Generated = False
+                else:
+                    health -= 1
+                    screen.fill(Red)
+                    Kanji_Generated = False
+
+            if Attack_4.draw(300, 550, screen):
+                if Kanji_List[Active].answer_check(4):
+                    score += 1
+                    screen.fill(Green)
+                    Kanji_Generated = False
+                else:
+                    health -= 1
+                    screen.fill(Red)
+                    Kanji_Generated = False
         else:
             game_state = 'Death'
 

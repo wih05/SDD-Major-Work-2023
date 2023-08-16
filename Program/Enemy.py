@@ -12,14 +12,15 @@ class Enemy():
         #-- answer lists --#
         self.correct_a = correct_a
         index_for_removal = []
+        self.incorrect_a = incorrect_a
         for x in range(len(correct_a)):                #--
             for i in range(len(incorrect_a)):             #
                 if correct_a[x] == incorrect_a[i]:        #
                     index_for_removal.append(i)           # removes all the correct answers from the incorrect list, that way
         index_for_removal.sort()                          #  the same incorrect list can be used for every kanji, only needing to differ correct list
         for z in index_for_removal:                       #
-            del incorrect_a[z]                            #
-        self.incorrect_a = incorrect_a                 #--
+            del self.incorrect_a[z]                    #--
+        print(self.incorrect_a)
         self.correct_a_num = 0
         self.possible_answers = []
         #--              --#
@@ -42,19 +43,22 @@ class Enemy():
         self.possible_answers = []
         # if correct answer in 1st pos
         if self.correct_a_num == 1:
-            # correct answer
+           # correct answer
             self.possible_answers.append(self.correct_a[randint(0, (len(self.correct_a)-1))])
 
             #incorrect answers
             answer_list = []
-            a = True
             for i in range(3):
+                a = True # re-enable while loop
                 while a == True:
                     possible_answer = self.incorrect_a[randint(0, (len(self.incorrect_a)-1))]
+                    print(f"answer loop {i}: {possible_answer}")
                     if possible_answer not in answer_list:            # makes sure there is no duplicates of possible answers
                         self.possible_answers.append(possible_answer)
                         answer_list.append(possible_answer)
-                        a = False
+                        print(answer_list)
+                        a = False # break while loop
+            print(" for loop {i}")
         # if correct answer in 2nd pos
         elif self.correct_a_num == 2:
             answer_list = []
@@ -67,8 +71,8 @@ class Enemy():
             self.possible_answers.append(self.correct_a[randint(0, (len(self.correct_a)-1))])
 
             #incorect answers 2 & 3
-            a = True
             for i in range(2):
+                a = True
                 while a == True:
                     possible_answer = self.incorrect_a[randint(0, (len(self.incorrect_a)-1))]
                     if possible_answer not in answer_list:
@@ -79,8 +83,8 @@ class Enemy():
         elif self.correct_a_num == 3:
             answer_list = []
             #incorrect answers 1 & 2
-            a = True
             for i in range(2):
+                a = True
                 while a == True:
                     possible_answer = self.incorrect_a[randint(0, (len(self.incorrect_a)-1))]
                     if possible_answer not in answer_list:
@@ -101,8 +105,8 @@ class Enemy():
         elif self.correct_a_num == 4:
             #incorrect answers
             answer_list = []
-            a = True
             for i in range(3):
+                a = True
                 while a == True:
                     possible_answer = self.incorrect_a[randint(0, (len(self.incorrect_a)-1))]
                     if possible_answer not in answer_list:
