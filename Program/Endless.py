@@ -28,9 +28,16 @@ Pixil_Font = pygame.font.SysFont('consolas', 30, True) # Font setup, Font: conso
 Pixil_Font_Big = pygame.font.SysFont('consolas', 100, True)
 
 # Kanji Creation
-Kanji_1_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
+answer_list = ["above", "aki", "autumn", "below", "book", "do", "eight", "fire", "five", "food",
+              "four", "getsu", "go", "gold", "hachi", "hi", "hon", "ichi", "ka", "kin", "mizu", 
+              "moku", "moon", "ni", "nichi", "one", "roku", "san", "shi", "shita", "six", "soil",
+              "sui", "sun", "tabe", "three", "tsuki", "two", "uchi", "ue", "water", "wood", "yon"]
+
+Water_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
+Above_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Above_Kanji.png').convert_alpha()
 Kanji_List = [
-    Enemy(["placeholder_true"], ["mizu", "water", "placeholder_false"], Kanji_1_img, 3)
+    Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
+    Enemy(["ue", "above"], answer_list, Above_img, (1/4))
 ]
 
 # Load images

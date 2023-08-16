@@ -8,18 +8,20 @@ from random import randint
 
 #-- Enemy Class --#
 class Enemy():
-    def __init__(self, correct_a, incorrect_a, image, scale):
+    def __init__(self, correct, incorrect, image, scale):
         #-- answer lists --#
-        self.correct_a = correct_a
-        index_for_removal = []
-        self.incorrect_a = incorrect_a
-        for x in range(len(correct_a)):                #--
-            for i in range(len(incorrect_a)):             #
-                if correct_a[x] == incorrect_a[i]:        #
-                    index_for_removal.append(i)           # removes all the correct answers from the incorrect list, that way
-        index_for_removal.sort()                          #  the same incorrect list can be used for every kanji, only needing to differ correct list
-        for z in index_for_removal:                       #
-            del self.incorrect_a[z]                    #--
+        self.correct_a = []
+        for i in correct:
+            self.correct_a.append(i)
+        self.incorrect_a = []
+        for i in incorrect:
+            self.incorrect_a.append(i)
+        for i in self.incorrect_a:
+            if i in self.correct_a:
+                for y in range(len(self.incorrect_a)):
+                    if i == self.incorrect_a[y-1]:
+                        del self.incorrect_a[y-1]
+        print(self.correct_a)
         print(self.incorrect_a)
         self.correct_a_num = 0
         self.possible_answers = []
@@ -43,7 +45,7 @@ class Enemy():
         self.possible_answers = []
         # if correct answer in 1st pos
         if self.correct_a_num == 1:
-           # correct answer
+            # correct answer
             self.possible_answers.append(self.correct_a[randint(0, (len(self.correct_a)-1))])
 
             #incorrect answers
@@ -58,6 +60,7 @@ class Enemy():
                         answer_list.append(possible_answer)
                         print(answer_list)
                         a = False # break while loop
+                    print("loop")
             print(" for loop {i}")
         # if correct answer in 2nd pos
         elif self.correct_a_num == 2:
@@ -79,6 +82,7 @@ class Enemy():
                         self.possible_answers.append(possible_answer)
                         answer_list.append(possible_answer)
                         a = False
+                    print("loop")
         # if correct answer in 3rd pos
         elif self.correct_a_num == 3:
             answer_list = []
@@ -91,6 +95,7 @@ class Enemy():
                         self.possible_answers.append(possible_answer)
                         answer_list.append(possible_answer)
                         a = False
+                    print("loop")
 
             #correct answer
             self.possible_answers.append(self.correct_a[randint(0, (len(self.correct_a)-1))])
@@ -101,6 +106,8 @@ class Enemy():
                 possible_answer = self.incorrect_a[randint(0, (len(self.incorrect_a)-1))]
                 if possible_answer not in answer_list:
                     self.possible_answers.append(possible_answer)
+                    a = False    #note for log, this is where infinite loop occured, found by adding 'loop' flag
+                print("loop")
         # if correct answer in 4th pos
         elif self.correct_a_num == 4:
             #incorrect answers
@@ -113,6 +120,7 @@ class Enemy():
                         self.possible_answers.append(possible_answer)
                         answer_list.append(possible_answer)
                         a = False
+                    print("loop")
             self.possible_answers.append(self.correct_a[randint(0, (len(self.correct_a)-1))])
 
         #displaying the possible answers is done in the main program using the button class
