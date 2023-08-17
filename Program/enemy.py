@@ -3,6 +3,7 @@
 #-- Imports --#
 import pygame
 from random import randint
+from random import shuffle
 
 #--         --#
 
@@ -41,6 +42,7 @@ class Enemy():
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
     def move_generation(self):
+        shuffle(self.incorrect_a)
         self.correct_a_num = randint(1, 4) #decides pos of correct answer
         self.possible_answers = []
         # if correct answer in 1st pos
