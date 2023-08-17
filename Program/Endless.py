@@ -35,9 +35,13 @@ answer_list = ["above", "aki", "autumn", "below", "book", "do", "eight", "fire",
 
 Water_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
 Above_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Above_Kanji.png').convert_alpha()
+Book_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Book_Kanji.png').convert_alpha()
+Fire_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Fire_Kanji.png').convert_alpha()
 Kanji_List = [
     Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
-    Enemy(["ue", "above"], answer_list, Above_img, (1/4))
+    Enemy(["ue", "above"], answer_list, Above_img, (1/4)),
+    Enemy(["hon", "book"], answer_list, Book_img, 3),
+    Enemy(["hi", "ka", "fire"], answer_list, Fire_img, 3)
 ]
 
 # Load images
