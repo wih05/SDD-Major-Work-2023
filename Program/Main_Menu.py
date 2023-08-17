@@ -55,6 +55,8 @@ MM_Play_Button = button.Button(MM_Play_img, 2)
 game_state = 'Main_Menu'
 
 scroll = 5
+
+goto = ''
 #--       --#
 
 #-- Functions --#
@@ -111,7 +113,8 @@ while run:
             run = False
         screen.blit(Menu_Text_BG, (250, 100))
         if MM_Play_Button.draw(600, 150, screen):
-            game_state = 'Main_Menu'
+            goto = 'Endless'
+            run = False
 
     if game_state == 'Help':
         if Levels_Button.draw(50, 100, screen):
@@ -149,3 +152,6 @@ while run:
     pygame.display.update() # Updates display
 
 pygame.quit() # Closes window... it quits.
+
+if goto == 'Endless':
+    os.system('Program\Endless.py')

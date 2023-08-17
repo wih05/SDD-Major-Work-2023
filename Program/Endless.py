@@ -3,7 +3,7 @@ import pygame
 import button
 from enemy import Enemy
 from random import randint
-from rnadom import shuffle
+from random import shuffle
 import os
 #--         --#
 
@@ -49,6 +49,11 @@ Sun_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Sun_Kanji.png').conve
 Three_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Three_Kanji.png').convert_alpha()
 Two_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Two_Kanji.png').convert_alpha()
 Wood_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Wood_Kanji.png').convert_alpha()
+Autumn_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Autumn_Kanji.png').convert_alpha()
+Below_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Below_Kanji.png').convert_alpha()
+Eight_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Eight_Kanji.png').convert_alpha()
+Gold_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Gold_Kanji.png').convert_alpha()
+
 Kanji_List = [
     Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
     Enemy(["ue", "above"], answer_list, Above_img, (1/4)),
@@ -64,12 +69,21 @@ Kanji_List = [
     Enemy(["nichi", "sun"], answer_list, Sun_img, 3),
     Enemy(["san", "three"], answer_list, Three_img, 3),
     Enemy(["ni", "two"], answer_list, Two_img, 3),
-    Enemy(["moku", "wood"], answer_list, Wood_img, 3)
+    Enemy(["moku", "wood"], answer_list, Wood_img, 3),
+    Enemy(["aki", "autumn"], answer_list, Autumn_img, (1/4)),
+    Enemy(["shita", "below"], answer_list, Below_img, (1/4)),
+    Enemy(["hachi", "eight"], answer_list, Eight_img, (1/4)),
+    Enemy(["kin", "gold"], answer_list, Gold_img, (1/4))
 ]
 
 # Load images
 Exit_img = pygame.image.load('Program\Sprites\IG_Exit_Button.png').convert_alpha()
 Retry_img = pygame.image.load('Program\Sprites\IG_Retry_Button.png').convert_alpha()
+Health_1 = pygame.image.load('Program\Sprites\Health_1.png').convert_alpha()
+Health_2 = pygame.image.load('Program\Sprites\Health_2.png').convert_alpha()
+Health_3 = pygame.image.load('Program\Sprites\Health_3.png').convert_alpha()
+Health_4 = pygame.image.load('Program\Sprites\Health_4.png').convert_alpha()
+Health_5 = pygame.image.load('Program\Sprites\Health_5.png').convert_alpha()
 
 # Buttons
 Exit_Button = button.Button(Exit_img, 2)
@@ -80,6 +94,7 @@ Retry_Button = button.Button(Retry_img, 2)
 game_state = "Battle"
 score = 0
 health = 5
+goto = ''
 #--           --#
 
 #-- functions --#
@@ -121,6 +136,17 @@ while run:
                     count += 1
                 print("Button Creation Complete")
                 Kanji_Generated = True
+            Display_Text(screen, f"Score:  {score}", Pixil_Font, White, 50, 50)
+            if health == 1:                        # shows health in a health bar
+                screen.blit(Health_1, (50,100))
+            elif health == 2:
+                screen.blit(Health_2, (50,100))
+            elif health == 3:
+                screen.blit(Health_3, (50,100))
+            elif health == 4:
+                screen.blit(Health_4, (50,100))
+            elif health == 5:
+                screen.blit(Health_5, (50,100))
             Kanji_List[Active].draw(850, 200, screen) # draw the kanji to 'fight'
             if Attack_1.draw(50, 400, screen):
                 if Kanji_List[Active].answer_check(1):
@@ -171,7 +197,7 @@ while run:
         #maybe add a thing showing if highscore or not
         if Exit_Button.draw(50, 600, screen):
             run = False
-            #goto Main_Menu.py
+            goto = 'Main'
         if Retry_Button.draw(990, 600, screen):
             health = 5
             score= 0
@@ -184,3 +210,6 @@ while run:
             run = False
 
     pygame.display.update() # Updates display
+
+if goto == 'Main':
+    os.system('Program\Main_Menu.py')
