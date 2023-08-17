@@ -3,6 +3,7 @@ import pygame
 import button
 from enemy import Enemy
 from random import randint
+from rnadom import shuffle
 import os
 #--         --#
 
@@ -37,11 +38,15 @@ Water_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').c
 Above_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Above_Kanji.png').convert_alpha()
 Book_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Book_Kanji.png').convert_alpha()
 Fire_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Fire_Kanji.png').convert_alpha()
+Five_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Five_Kanji.png').convert_alpha()
+Food_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Food_Kanji.png').convert_alpha()
 Kanji_List = [
     Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
     Enemy(["ue", "above"], answer_list, Above_img, (1/4)),
     Enemy(["hon", "book"], answer_list, Book_img, 3),
-    Enemy(["hi", "ka", "fire"], answer_list, Fire_img, 3)
+    Enemy(["hi", "ka", "fire"], answer_list, Fire_img, 3),
+    Enemy(["go", "five"], answer_list, Five_img, 3),
+    Enemy(["tabe", "food"], answer_list, Food_img, 3)
 ]
 
 # Load images
@@ -74,6 +79,7 @@ while run:
         if health > 0:
             if Kanji_Generated == False:
                 # Active kanji choice
+                shuffle(Kanji_List)
                 Active = randint(0, (len(Kanji_List)-1))
                 print(f"Active = {Active}")
                 Kanji_List[Active].move_generation()
