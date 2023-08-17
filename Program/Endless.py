@@ -40,13 +40,31 @@ Book_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Book_Kanji.png').con
 Fire_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Fire_Kanji.png').convert_alpha()
 Five_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Five_Kanji.png').convert_alpha()
 Food_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Food_Kanji.png').convert_alpha()
+Four_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Four_Kanji.png').convert_alpha()
+Moon_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Moon_Kanji.png').convert_alpha()
+One_img = pygame.image.load('Program\Sprites\Kanji_Sprites\One_Kanji.png').convert_alpha()
+Six_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Six_Kanji.png').convert_alpha()
+Soil_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Soil_Kanji.png').convert_alpha()
+Sun_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Sun_Kanji.png').convert_alpha()
+Three_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Three_Kanji.png').convert_alpha()
+Two_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Two_Kanji.png').convert_alpha()
+Wood_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Wood_Kanji.png').convert_alpha()
 Kanji_List = [
     Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
     Enemy(["ue", "above"], answer_list, Above_img, (1/4)),
     Enemy(["hon", "book"], answer_list, Book_img, 3),
     Enemy(["hi", "ka", "fire"], answer_list, Fire_img, 3),
     Enemy(["go", "five"], answer_list, Five_img, 3),
-    Enemy(["tabe", "food"], answer_list, Food_img, 3)
+    Enemy(["tabe", "food"], answer_list, Food_img, 3),
+    Enemy(["yon", "shi", "four"], answer_list, Four_img, 3),
+    Enemy(["tsuki", "getsu", "moon"], answer_list, Moon_img, 3),
+    Enemy(["ichi", "one"], answer_list, One_img, 3),
+    Enemy(["roku", "six"], answer_list, Six_img, 3),
+    Enemy(["uchi", "do", "soil"], answer_list, Soil_img, 3),
+    Enemy(["nichi", "sun"], answer_list, Sun_img, 3),
+    Enemy(["san", "three"], answer_list, Three_img, 3),
+    Enemy(["ni", "two"], answer_list, Two_img, 3),
+    Enemy(["moku", "wood"], answer_list, Wood_img, 3)
 ]
 
 # Load images
