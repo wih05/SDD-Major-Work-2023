@@ -41,6 +41,7 @@ Help_S_img = pygame.image.load('Program\Sprites\Menu_Help_Button_S.png').convert
 Menu_Text_BG = pygame.image.load('Program\Sprites\Menu_Text_BG.png').convert_alpha()
 Menu_Text_BG = pygame.transform.scale(Menu_Text_BG, (900, 600)) # Scales IMG up by 2
 MM_Play_img = pygame.image.load('Program\Sprites\Start_Button.png').convert_alpha()
+
 # Buttons
 Levels_Button = button.Button(Levels_img, 2)
 Endless_Button = button.Button(Endless_img, 2)
@@ -57,6 +58,12 @@ game_state = 'Main_Menu'
 scroll = 5
 
 goto = ''
+
+file = open('Program\highscore.txt', 'r') #open highscore data
+ 
+for i in file:
+    highscore = int(i) #save highscore
+
 #--       --#
 
 #-- Functions --#
@@ -84,7 +91,7 @@ while run:
         scroll += 0.5 #slows down to half speed before stopping
 
     if game_state == 'Main_Menu': # Main menu screen
-        if Levels_Button.draw(520, 100, screen):
+        if Levels_Button.draw(520, 100, screen):         # draws the button on the screen as well as check if it has been pressed in the same statement
             game_state = 'Levels'
         if Endless_Button.draw(520, 260, screen):
             game_state = 'Endless'
@@ -112,7 +119,9 @@ while run:
         if Quit_Button.draw(50, 620, screen):
             run = False
         screen.blit(Menu_Text_BG, (250, 100))
-        if MM_Play_Button.draw(600, 150, screen):
+        Highscore_text = (f"Highscore: {highscore}")
+        Display_Text(screen, Highscore_text, Pixil_Font, White, 260, 105)
+        if MM_Play_Button.draw(970, 600, screen):
             goto = 'Endless'
             run = False
 

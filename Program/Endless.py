@@ -95,6 +95,9 @@ game_state = "Battle"
 score = 0
 health = 5
 goto = ''
+file = open('Program\highscore.txt', 'r') #open highscore data
+for i in file:
+    highscore = int(i) #save highscore
 #--           --#
 
 #-- functions --#
@@ -194,7 +197,13 @@ while run:
         screen.fill(Red) #sets colour to red
         Display_Text(screen, f"Score:  {score}", Pixil_Font, Black, 50, 50)
         Display_Text(screen, "You Died...", Pixil_Font_Big, Black, 350, 300)
-        #maybe add a thing showing if highscore or not
+        if score > highscore:
+            Display_Text(screen, "New High Score!", Pixil_Font, Black, 50, 100)
+            file = open('Program\highscore.txt','w')
+            file.write(str(score))
+            file.close()
+        else:
+            Display_Text(screen, (f"Highscore: {highscore}"), Pixil_Font, Black, 50, 100)
         if Exit_Button.draw(50, 600, screen):
             run = False
             goto = 'Main'
