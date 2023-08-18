@@ -40,7 +40,7 @@ Endless_S_img = pygame.image.load('Program\Sprites\Menu_Endless_Button_S.png').c
 Help_S_img = pygame.image.load('Program\Sprites\Menu_Help_Button_S.png').convert_alpha()
 Menu_Text_BG = pygame.image.load('Program\Sprites\Menu_Text_BG.png').convert_alpha()
 Menu_Text_BG = pygame.transform.scale(Menu_Text_BG, (900, 600)) # Scales IMG up by 2
-MM_Play_img = pygame.image.load('Program\Sprites\Play_Button.png').convert_alpha()
+MM_Play_img = pygame.image.load('Program\Sprites\Start_Button.png').convert_alpha()
 # Buttons
 Levels_Button = button.Button(Levels_img, 2)
 Endless_Button = button.Button(Endless_img, 2)
