@@ -28,7 +28,6 @@ class Button():
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False: #checks if button has been clicked while also preventing a new "click" while the button is held down
                 self.clicked = True
                 action = True # allows the 'action' to be dealt with in the main code.
-                print("CLICKED")
 
         if pygame.mouse.get_pressed()[0] == 0:
             self.clicked = False # when no longer holding down left click, it turns clicked to false, allowing for another click

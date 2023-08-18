@@ -27,20 +27,20 @@ Pixil_Font = pygame.font.SysFont('consolas', 30, True) # Font setup, Font: conso
 # load BG images
 bg_images = []
 for i in range(1,5): #goes through and loads every background and adds to a list
-    bg_image = pygame.image.load(f"Program\Sprites\BG_img_{i}.png").convert_alpha()
+    bg_image = pygame.image.load(f"Sprites\BG_img_{i}.png").convert_alpha()
     bg_image = pygame.transform.scale(bg_image, (1400, 730)) # scales image down by 3, (they are 3 times as big as the screen)
     bg_images.append(bg_image)
 # Load images
-Levels_img = pygame.image.load('Program\Sprites\Menu_Levels_Button.png').convert_alpha()
-Endless_img = pygame.image.load('Program\Sprites\Menu_Endless_Button.png').convert_alpha()
-Help_img = pygame.image.load('Program\Sprites\Menu_Help_Button.png').convert_alpha()
-Quit_img = pygame.image.load('Program\Sprites\Menu_Quit_Button.png').convert_alpha()
-Levels_S_img = pygame.image.load('Program\Sprites\Menu_Levels_Button_S.png').convert_alpha()
-Endless_S_img = pygame.image.load('Program\Sprites\Menu_Endless_Button_S.png').convert_alpha()
-Help_S_img = pygame.image.load('Program\Sprites\Menu_Help_Button_S.png').convert_alpha()
-Menu_Text_BG = pygame.image.load('Program\Sprites\Menu_Text_BG.png').convert_alpha()
+Levels_img = pygame.image.load('Sprites\Menu_Levels_Button.png').convert_alpha()
+Endless_img = pygame.image.load('Sprites\Menu_Endless_Button.png').convert_alpha()
+Help_img = pygame.image.load('Sprites\Menu_Help_Button.png').convert_alpha()
+Quit_img = pygame.image.load('Sprites\Menu_Quit_Button.png').convert_alpha()
+Levels_S_img = pygame.image.load('Sprites\Menu_Levels_Button_S.png').convert_alpha()
+Endless_S_img = pygame.image.load('Sprites\Menu_Endless_Button_S.png').convert_alpha()
+Help_S_img = pygame.image.load('Sprites\Menu_Help_Button_S.png').convert_alpha()
+Menu_Text_BG = pygame.image.load('Sprites\Menu_Text_BG.png').convert_alpha()
 Menu_Text_BG = pygame.transform.scale(Menu_Text_BG, (900, 600)) # Scales IMG up by 2
-MM_Play_img = pygame.image.load('Program\Sprites\Start_Button.png').convert_alpha()
+MM_Play_img = pygame.image.load('Sprites\Start_Button.png').convert_alpha()
 
 # Buttons
 Levels_Button = button.Button(Levels_img, 2)
@@ -59,7 +59,7 @@ scroll = 5
 
 goto = ''
 
-file = open('Program\highscore.txt', 'r') #open highscore data
+file = open('highscore.txt', 'r') #open highscore data
  
 for i in file:
     highscore = int(i) #save highscore
@@ -163,4 +163,4 @@ while run:
 pygame.quit() # Closes window... it quits.
 
 if goto == 'Endless':
-    os.system('Program\Endless.py')
+    os.system('Endless.py')

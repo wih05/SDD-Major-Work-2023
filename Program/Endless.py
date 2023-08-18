@@ -34,25 +34,25 @@ answer_list = ["above", "aki", "autumn", "below", "book", "do", "eight", "fire",
               "moku", "moon", "ni", "nichi", "one", "roku", "san", "shi", "shita", "six", "soil",
               "sui", "sun", "tabe", "three", "tsuki", "two", "uchi", "ue", "water", "wood", "yon"]
 
-Water_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
-Above_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Above_Kanji.png').convert_alpha()
-Book_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Book_Kanji.png').convert_alpha()
-Fire_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Fire_Kanji.png').convert_alpha()
-Five_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Five_Kanji.png').convert_alpha()
-Food_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Food_Kanji.png').convert_alpha()
-Four_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Four_Kanji.png').convert_alpha()
-Moon_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Moon_Kanji.png').convert_alpha()
-One_img = pygame.image.load('Program\Sprites\Kanji_Sprites\One_Kanji.png').convert_alpha()
-Six_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Six_Kanji.png').convert_alpha()
-Soil_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Soil_Kanji.png').convert_alpha()
-Sun_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Sun_Kanji.png').convert_alpha()
-Three_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Three_Kanji.png').convert_alpha()
-Two_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Two_Kanji.png').convert_alpha()
-Wood_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Wood_Kanji.png').convert_alpha()
-Autumn_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Autumn_Kanji.png').convert_alpha()
-Below_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Below_Kanji.png').convert_alpha()
-Eight_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Eight_Kanji.png').convert_alpha()
-Gold_img = pygame.image.load('Program\Sprites\Kanji_Sprites\Gold_Kanji.png').convert_alpha()
+Water_img = pygame.image.load('Sprites\Kanji_Sprites\Water_Kanji.png').convert_alpha()
+Above_img = pygame.image.load('Sprites\Kanji_Sprites\Above_Kanji.png').convert_alpha()
+Book_img = pygame.image.load('Sprites\Kanji_Sprites\Book_Kanji.png').convert_alpha()
+Fire_img = pygame.image.load('Sprites\Kanji_Sprites\Fire_Kanji.png').convert_alpha()
+Five_img = pygame.image.load('Sprites\Kanji_Sprites\Five_Kanji.png').convert_alpha()
+Food_img = pygame.image.load('Sprites\Kanji_Sprites\Food_Kanji.png').convert_alpha()
+Four_img = pygame.image.load('Sprites\Kanji_Sprites\Four_Kanji.png').convert_alpha()
+Moon_img = pygame.image.load('Sprites\Kanji_Sprites\Moon_Kanji.png').convert_alpha()
+One_img = pygame.image.load('Sprites\Kanji_Sprites\One_Kanji.png').convert_alpha()
+Six_img = pygame.image.load('Sprites\Kanji_Sprites\Six_Kanji.png').convert_alpha()
+Soil_img = pygame.image.load('Sprites\Kanji_Sprites\Soil_Kanji.png').convert_alpha()
+Sun_img = pygame.image.load('Sprites\Kanji_Sprites\Sun_Kanji.png').convert_alpha()
+Three_img = pygame.image.load('Sprites\Kanji_Sprites\Three_Kanji.png').convert_alpha()
+Two_img = pygame.image.load('Sprites\Kanji_Sprites\Two_Kanji.png').convert_alpha()
+Wood_img = pygame.image.load('Sprites\Kanji_Sprites\Wood_Kanji.png').convert_alpha()
+Autumn_img = pygame.image.load('Sprites\Kanji_Sprites\Autumn_Kanji.png').convert_alpha()
+Below_img = pygame.image.load('Sprites\Kanji_Sprites\Below_Kanji.png').convert_alpha()
+Eight_img = pygame.image.load('Sprites\Kanji_Sprites\Eight_Kanji.png').convert_alpha()
+Gold_img = pygame.image.load('Sprites\Kanji_Sprites\Gold_Kanji.png').convert_alpha()
 
 Kanji_List = [
     Enemy(["mizu", "water", "sui"], answer_list, Water_img, 3),
@@ -77,13 +77,13 @@ Kanji_List = [
 ]
 
 # Load images
-Exit_img = pygame.image.load('Program\Sprites\IG_Exit_Button.png').convert_alpha()
-Retry_img = pygame.image.load('Program\Sprites\IG_Retry_Button.png').convert_alpha()
-Health_1 = pygame.image.load('Program\Sprites\Health_1.png').convert_alpha()
-Health_2 = pygame.image.load('Program\Sprites\Health_2.png').convert_alpha()
-Health_3 = pygame.image.load('Program\Sprites\Health_3.png').convert_alpha()
-Health_4 = pygame.image.load('Program\Sprites\Health_4.png').convert_alpha()
-Health_5 = pygame.image.load('Program\Sprites\Health_5.png').convert_alpha()
+Exit_img = pygame.image.load('Sprites\IG_Exit_Button.png').convert_alpha()
+Retry_img = pygame.image.load('Sprites\IG_Retry_Button.png').convert_alpha()
+Health_1 = pygame.image.load('Sprites\Health_1.png').convert_alpha()
+Health_2 = pygame.image.load('Sprites\Health_2.png').convert_alpha()
+Health_3 = pygame.image.load('Sprites\Health_3.png').convert_alpha()
+Health_4 = pygame.image.load('Sprites\Health_4.png').convert_alpha()
+Health_5 = pygame.image.load('Sprites\Health_5.png').convert_alpha()
 
 # Buttons
 Exit_Button = button.Button(Exit_img, 2)
@@ -95,7 +95,7 @@ game_state = "Battle"
 score = 0
 health = 5
 goto = ''
-file = open('Program\highscore.txt', 'r') #open highscore data
+file = open('highscore.txt', 'r') #open highscore data
 for i in file:
     highscore = int(i) #save highscore
 #--           --#
@@ -117,27 +117,24 @@ while run:
                 # Active kanji choice
                 shuffle(Kanji_List)
                 Active = randint(0, (len(Kanji_List)-1))
-                print(f"Active = {Active}")
                 Kanji_List[Active].move_generation()
 
                 # making buttons for possible answers
                 count = 1
                 for i in Kanji_List[Active].possible_answers:
                     if count == 1:
-                        Img_1 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Img_1 = pygame.image.load(f'Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
                         Attack_1 = button.Button(Img_1, 2)
                     elif count == 2:
-                        Img_2 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Img_2 = pygame.image.load(f'Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
                         Attack_2 = button.Button(Img_2, 2)
                     elif count == 3:
-                        Img_3 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Img_3 = pygame.image.load(f'Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
                         Attack_3 = button.Button(Img_3, 2)
                     elif count == 4:
-                        Img_4 = pygame.image.load(f'Program\Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
+                        Img_4 = pygame.image.load(f'Sprites\Answer_Sprites\{i}_answer.png').convert_alpha()
                         Attack_4 = button.Button(Img_4, 2)
-                    print(f"loop {count}: {i}")
                     count += 1
-                print("Button Creation Complete")
                 Kanji_Generated = True
             Display_Text(screen, f"Score:  {score}", Pixil_Font, White, 50, 50)
             if health == 1:                        # shows health in a health bar
@@ -199,7 +196,7 @@ while run:
         Display_Text(screen, "You Died...", Pixil_Font_Big, Black, 350, 300)
         if score > highscore:
             Display_Text(screen, "New High Score!", Pixil_Font, Black, 50, 100)
-            file = open('Program\highscore.txt','w')
+            file = open('highscore.txt','w')
             file.write(str(score))
             file.close()
         else:
@@ -221,4 +218,4 @@ while run:
     pygame.display.update() # Updates display
 
 if goto == 'Main':
-    os.system('Program\Main_Menu.py')
+    os.system('Main_Menu.py')
